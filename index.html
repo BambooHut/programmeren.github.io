@@ -1,8 +1,9 @@
 <html>
 
 <body>
-    Hier komen zometeen mijn algoritmes
+    Hier komen zometeen mijn algoritmes.
 
+     Hierna komt liniair search:
     <script>
      
                 // Dit programma geeft een serie van 50 random getallen. De gebruiker voegt een random nummer in en het programma zegt of het er in staat, en zo ja, waar
@@ -34,9 +35,85 @@
     } else {
         window.alert(zoekGetal.ToString() + " staat op plek " + geradenPlaats);
     }
+    </script>
+    Hierna komt bubblesort
+    <script>
+     
+    // Hier komt een programma dat random getallen van groot naar klein en van klein naar groot te sorteren
+    var aantal;
+
+    window.alert("Geef aantal getallen op");
+    aantal = Number(window.prompt('Enter a value for aantal'));
+    var nummers = new Array(aantal);
+    var teller;
+
+    for (teller = 0; teller <= nummers.length - 1; teller++) {
+
+        // Hier worden random getallen onder de honderd gegenereerd
+        nummers[teller] = Math.floor(Math.random() * 100);
+    }
+    weergaveArray(nummers);
+    window.alert("Wil je beginnen bij het grootsts of het kleinst bij het sorteren?");
+    var welke;
+
+    welke = window.prompt('Enter a value for welke');
+
+    // het breakpoint was gedaan om het wat overzichtelijker is
+    if (welke == "grootst") {
+        reverseSorteer(nummers);
+    } else {
+        sorteer(nummers);
+    }
 
 
-    
+function reverseSorteer(nummers) {
+    // hier worden de cijfers van groot naar klein te sorteren
+    var i;
+    var j;
+    var temp;
+
+    for (i = 0; i <= nummers.length - 1; i++) {
+        for (j = 0; j <= nummers.length - i - 2; j++) {
+            if (nummers[j] < nummers[j + 1]) {
+                temp = nummers[j];
+                nummers[j] = nummers[j + 1];
+                nummers[j + 1] = temp;
+            }
+        }
+    }
+    window.alert("De gesorteerde waarde zijn");
+    weergaveArray(nummers);
+}
+
+function sorteer(nummers) {
+    // dit programma sorteerd de rij van klein naar groot
+    var i;
+    var j;
+    var temp;
+
+    for (i = 0; i <= nummers.length - 1; i++) {
+        for (j = 0; j <= nummers.length - i - 2; j++) {
+            if (nummers[j] > nummers[j + 1]) {
+                temp = nummers[j];
+                nummers[j] = nummers[j + 1];
+                nummers[j + 1] = temp;
+            }
+        }
+    }
+    window.alert("De gesorteerde waarde zijn");
+    weergaveArray(nummers);
+}
+
+function weergaveArray(nummers) {
+    // Hier worden alle nummers op verteld
+    var teller;
+
+    for (teller = 0; teller <= nummers.length - 1; teller++) {
+        window.alert(nummers[teller]);
+    }
+}
+
+
     </script>
 
 </body>
