@@ -4,6 +4,37 @@
     Hier komen zometeen mijn algoritmes
 
     <script>
+        function main() {
+                // Dit programma geeft een serie van 50 random getallen. De gebruiker voegt een random nummer in en het programma zegt of het er in staat, en zo ja, waar
+    var getallenRij = New Array(50);
+    var zoekGetal, i;
+
+    for (i = 0; i <= 49; i++) {
+        getallenRij[i] = Math.floor(Math.random() * 100);
+    }
+    window.alert("Welk getal wil je zoeken: ");
+    zoekGetal = Number(window.prompt('Enter a value for zoekGetal'));
+    i = 0;
+    var geradenPlaats;
+
+    geradenPlaats = 0;
+    while (i < 10) {
+        if (zoekGetal == getallenRij[i]) {
+            window.alert("Getal gevonden!");
+            geradenPlaats = i;
+
+            // Ik heb gekozen voor i=11, want het moet meer dan (of gelijk zijn aan) 10 zijn om uit de loop te komen, maar als het 10 is, zal het later zeggen dat het niet in de reeks staat, dus ik koos voor 11.
+            i = 11;
+        } else {
+            i = i + 1;
+        }
+    }
+    if (i == 10) {
+        window.alert("Getal niet gevonden.");
+    } else {
+        window.alert(zoekGetal.ToString() + " staat op plek " + geradenPlaats);
+    }
+}
 
     
     </script>
