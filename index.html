@@ -42,8 +42,7 @@
     // Hier komt een programma dat random getallen van groot naar klein en van klein naar groot te sorteren
     var aantal;
 
-    window.alert("Geef aantal getallen op");
-    aantal = Number(window.prompt('Enter a value for aantal'));
+    aantal = Number(window.prompt('Geef aantal getallen op'));
     var nummers = new Array(aantal);
     var teller;
 
@@ -53,10 +52,9 @@
         nummers[teller] = Math.floor(Math.random() * 100);
     }
     weergaveArray(nummers);
-    window.alert("Wil je beginnen bij het grootsts of het kleinst bij het sorteren?");
     var welke;
 
-    welke = window.prompt('Enter a value for welke');
+    welke = window.prompt('Wil je beginnen bij het grootsts of het kleinst bij het sorteren?');
 
     // het breakpoint was gedaan om het wat overzichtelijker is
     if (welke == "grootst") {
