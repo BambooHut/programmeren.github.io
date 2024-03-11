@@ -126,6 +126,7 @@ function weergaveArray(nummers) {
    Hierna komt binary search :
    <button onclick="binarySearch()">Ik ben voor binary search!</button>
 
+
     <script>
      function binarySearch() {
     // Hier komt een binary search programma. Eerst worden er random nummers gegenereerd, dan gesorteerd via bubble sort en dan via binary search wordt er naar een ingevoerd getal gezocht.
@@ -139,12 +140,25 @@ function weergaveArray(nummers) {
         // Hier worden random getallen onder de honderd gegenereerd
         aantal[i] = Math.floor(Math.random() * 100);
     }
+
     subBubbleSort(aantal);
     var geradenGetal;
 
     geradenGetal = Number(window.prompt('Raad een getal'));
 
+
+
+
+    //Ik denk dat de volgende weg moet, maar weet het niet zeker:
+
+
+
+
     search(aantal, geradenGetal, i);
+
+
+
+
 
 
     function subBinarySearch(aantal){
