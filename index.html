@@ -112,9 +112,102 @@ function weergaveArray(nummers) {
     }
 }
     </script>
+
+
    <br>
    Hierna komt binary search (let op de array):
+
+
     <script>
+     
+    // Hier komt een binary search programma. Eerst worden er random nummers gegenereerd, dan gesorteerd via bubble sort en dan via binary search wordt er naar een ingevoerd getal gezocht.
+    var aantal = new Array(50);
+
+    window.alert("Geef aantal getallen op");
+    var i;
+
+    for (i = 0; i <= aantal.length - 1; i++) {
+
+        // Hier worden random getallen onder de honderd gegenereerd
+        aantal[i] = Math.floor(Math.random() * 100);
+    }
+    bubbleSort(aantal);
+    var geradenGetal;
+
+    window.alert("Raad een getal");
+    geradenGetal = Number(window.prompt('Enter a value for geradenGetal'));
+    search(aantal, geradenGetal, i);
+
+
+function bubbleSort(aantal) {
+    // dit programma sorteerd de rijrandom getallen van klein naar groot
+    var i;
+    var j;
+    var temp;
+
+    for (i = 0; i <= aantal.length - 1; i++) {
+        for (j = 0; j <= aantal.length - i - 2; j++) {
+            if (aantal[j] > aantal[j + 1]) {
+                temp = aantal[j];
+                aantal[j] = aantal[j + 1];
+                aantal[j + 1] = temp;
+            }
+        }
+    }
+}
+
+function search(aantal, geradenGetal, i) {
+    // Hier wordt er binary search uitgevoerd op de random getallen.
+    var plaatsGeraden;
+
+    plaatsGeraden = false;
+    var eindIndex;
+
+    eindIndex = i;
+    var middenIndex;
+
+    middenIndex =  i / 2;
+    var beginIndex;
+
+    beginIndex = 0;
+    while (plaatsGeraden != true) {
+
+        // Als het getal groter is dan het getal wat in het midden staat, zal het naar rechts gaan. Zo niet naar links
+        if (geradenGetal > aantal[middenIndex]) {
+            if (geradenGetal == aantal[middenIndex]) {
+                window.alert("Gevonden!");
+                plaatsGeraden = true;
+                window.alert("Het staat op plaats " + middenIndex);
+            } else {
+
+                // Op een gegeven moment als het getal er niet in staat, zullen het midden en het begin van de rij die gecheckt wordt hetzelfde zijn een een oneindige loop creëren. Om dit te voorkomen staat hier een if-statement.
+                if (beginIndex == middenIndex) {
+                    window.alert("Niet gevonden");
+                    plaatsGeraden = true;
+                } else {
+                    beginIndex = middenIndex;
+                    middenIndex = (double) (eindIndex + middenIndex) / 2;
+                }
+            }
+        } else {
+            if (geradenGetal == aantal[middenIndex]) {
+                window.alert("Gevonden!");
+                plaatsGeraden = true;
+                window.alert("Het staat op plaats " + middenIndex);
+            } else {
+
+                // Op een gegeven moment als het getal er niet in staat, zullen het midden en het begin van de rij die gecheckt wordt hetzelfde zijn een een oneindige loop creëren. Om dit te voorkomen staat hier een if-statement.
+                if (beginIndex == middenIndex) {
+                    window.alert("Niet gevonden");
+                    plaatsGeraden = true;
+                } else {
+                    eindIndex = middenIndex;
+                    middenIndex = (double) (beginIndex + middenIndex) / 2;
+                }
+            }
+        }
+    }
+}
 
 
     </script>
