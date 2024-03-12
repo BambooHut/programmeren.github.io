@@ -6,194 +6,198 @@
 
     <br>
      Hierna komt liniair search:
+    <br>
      <button onclick="liniairSearch()">Ik ben voor liniair search!</button>
 
     <script>
      function liniairSearch() {
                 // Dit programma geeft een serie van 50 random getallen. De gebruiker voegt een random nummer in en het programma zegt of het er in staat, en zo ja, waar
-    var getallenRij = new Array(50);
-    var zoekGetal, i;
+        var getallenRij = new Array(50);
+        var zoekGetal, i;
 
-    for (i = 0; i <= 49; i++) {
+        for (i = 0; i <= 49; i++) {
         getallenRij[i] = Math.floor(Math.random() * 100);
-    }
+        }
   
-    zoekGetal = Number(window.prompt('Welk getal wil je zoeken?'));
-    i = 0;
-    var geradenPlaats;
+        zoekGetal = Number(window.prompt('Welk getal wil je zoeken?'));
+        i = 0;
+        var geradenPlaats;
 
-    geradenPlaats = 0;
-    while (i < 10) {
-        if (zoekGetal == getallenRij[i]) {
+        geradenPlaats = 0;
+        while (i < 10) {
+         if (zoekGetal == getallenRij[i]) {
             window.alert("Getal gevonden!");
             geradenPlaats = i;
 
             // Ik heb gekozen voor i=11, want het moet meer dan (of gelijk zijn aan) 10 zijn om uit de loop te komen, maar als het 10 is, zal het later zeggen dat het niet in de reeks staat, dus ik koos voor 11.
             i = 11;
-        } else {
+            } else {
             i = i + 1;
+            }
+        }
+        if (i == 10) {
+         window.alert("Getal niet gevonden.");
+        } else {
+         window.alert(zoekGetal.ToString() + " staat op plek " + geradenPlaats);
         }
     }
-    if (i == 10) {
-        window.alert("Getal niet gevonden.");
-    } else {
-        window.alert(zoekGetal.ToString() + " staat op plek " + geradenPlaats);
-    }
-}
     </script>
+
    <br>
-   Hierna komt bubblesort
-   <button onclick="bubbleSort()">Ik ben voor bubble sort!</button>
+        Hierna komt bubblesort
+    <br> 
+    <button onclick="bubbleSort()">Ik ben voor bubble sort!</button>
 
     <script>
      function bubbleSort() {
-    // Hier komt een programma dat random getallen van groot naar klein en van klein naar groot te sorteren
-    var aantal;
+        // Hier komt een programma dat random getallen van groot naar klein en van klein naar groot te sorteren
+         var aantal;
 
-    aantal = Number(window.prompt('Geef aantal getallen op'));
-    var nummers = new Array(aantal);
-    var teller;
+         aantal = Number(window.prompt('Geef aantal getallen op'));
+         var nummers = new Array(aantal);
+        var teller;
 
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
+         for (teller = 0; teller <= nummers.length - 1; teller++) {
 
         // Hier worden random getallen onder de honderd gegenereerd
-        nummers[teller] = Math.floor(Math.random() * 100);
-    }
-    weergaveArray(nummers);
-    var welke;
+            nummers[teller] = Math.floor(Math.random() * 100);
+         }
+         weergaveArray(nummers);
+        var welke;
 
-    welke = window.prompt('Wil je beginnen bij het grootsts of het kleinst bij het sorteren?');
+          welke = window.prompt('Wil je beginnen bij het grootsts of het kleinst bij het sorteren?');
 
-    // het breakpoint was gedaan om het wat overzichtelijker is
-    if (welke == "grootst") {
-        reverseSorteer(nummers);
-    } else {
-        sorteer(nummers);
-    }
+          // het breakpoint was gedaan om het wat overzichtelijker is
+          if (welke == "grootst") {
+             reverseSorteer(nummers);
+         } else {
+             sorteer(nummers);
+         }
 
 
-function reverseSorteer(nummers) {
-    // hier worden de cijfers van groot naar klein te sorteren
-    var i;
-    var j;
-    var temp;
+        function reverseSorteer(nummers) {
+         // hier worden de cijfers van groot naar klein te sorteren
+         var i;
+         var j;
+         var temp;
 
-    for (i = 0; i <= nummers.length - 1; i++) {
-        for (j = 0; j <= nummers.length - i - 2; j++) {
-            if (nummers[j] < nummers[j + 1]) {
+            for (i = 0; i <= nummers.length - 1; i++) {
+             for (j = 0; j <= nummers.length - i - 2; j++) {
+                if (nummers[j] < nummers[j + 1]) {
                 temp = nummers[j];
                 nummers[j] = nummers[j + 1];
                 nummers[j + 1] = temp;
+             }
+            }
+            }
+            window.alert("De gesorteerde waarde zijn");
+            weergaveArray(nummers);
+        }
+
+        function sorteer(nummers) {
+         // dit programma sorteerd de rij van klein naar groot
+            var i;
+            var j;
+            var temp;
+
+            for (i = 0; i <= nummers.length - 1; i++) {
+                for (j = 0; j <= nummers.length - i - 2; j++) {
+                    if (nummers[j] > nummers[j + 1]) {
+                         temp = nummers[j];
+                         nummers[j] = nummers[j + 1];
+                         nummers[j + 1] = temp;
+                     }
+                }
+            }
+             window.alert("De gesorteerde waarde zijn");
+             weergaveArray(nummers);
+        }
+
+        function weergaveArray(nummers) {
+        // Hier worden alle nummers op verteld
+            var teller;
+
+            for (teller = 0; teller <= nummers.length - 1; teller++) {
+                 window.alert(nummers[teller]);
             }
         }
-    }
-    window.alert("De gesorteerde waarde zijn");
-    weergaveArray(nummers);
-}
-
-function sorteer(nummers) {
-    // dit programma sorteerd de rij van klein naar groot
-    var i;
-    var j;
-    var temp;
-
-    for (i = 0; i <= nummers.length - 1; i++) {
-        for (j = 0; j <= nummers.length - i - 2; j++) {
-            if (nummers[j] > nummers[j + 1]) {
-                temp = nummers[j];
-                nummers[j] = nummers[j + 1];
-                nummers[j + 1] = temp;
-            }
-        }
-    }
-    window.alert("De gesorteerde waarde zijn");
-    weergaveArray(nummers);
-}
-
-function weergaveArray(nummers) {
-    // Hier worden alle nummers op verteld
-    var teller;
-
-    for (teller = 0; teller <= nummers.length - 1; teller++) {
-        window.alert(nummers[teller]);
-    }
-}
      }
     </script>
 
 
    <br>
-   Hierna komt binary search :
+     Hierna komt binary search :
+    <br>
    <button onclick="binarySearch()">Ik ben voor binary search!</button>
 
 
     <script>
      function binarySearch() {
-    // Hier komt een binary search programma. Eerst worden er random nummers gegenereerd, dan gesorteerd via bubble sort en dan via binary search wordt er naar een ingevoerd getal gezocht.
-    var aantal = new Array(50);
+        // Hier komt een binary search programma. Eerst worden er random nummers gegenereerd, dan gesorteerd via bubble sort en dan via binary search wordt er naar een ingevoerd getal gezocht.
+         var aantal = new Array(50);
 
-    window.alert("Er worden nu 50 random getallen gegenereerd.");
-    var i;
+         window.alert("Er worden nu 50 random getallen gegenereerd.");
+            var i;
 
-    for (i = 0; i <= aantal.length - 1; i++) {
+        for (i = 0; i <= aantal.length - 1; i++) {
 
-        // Hier worden random getallen onder de honderd gegenereerd
-        aantal[i] = Math.floor(Math.random() * 100);
-    }
+           // Hier worden random getallen onder de honderd gegenereerd
+          aantal[i] = Math.floor(Math.random() * 100);
+         }
 
-    subBubbleSort(aantal);
-    var geradenGetal;
+        subBubbleSort(aantal);
+        var geradenGetal;
 
-    geradenGetal = Number(window.prompt('Raad een getal'));
-
-
-    //Ik denk dat de volgende weg moet, maar weet het niet zeker:
+        geradenGetal = Number(window.prompt('Raad een getal'));
 
 
-    search(aantal, geradenGetal, i);
+        
+
+
+        search(aantal, geradenGetal, i);
      }
 
 
-    function subBubbleSort(aantal){
-    // dit programma sorteerd de rijrandom getallen van klein naar groot
-    var i;
-    var j;
-    var temp;
+        function subBubbleSort(aantal){
+     // dit programma sorteerd de rijrandom getallen van klein naar groot
+         var i;
+         var j;
+         var temp;
 
-    for (i = 0; i <= aantal.length - 1; i++) {
-        for (j = 0; j <= aantal.length - i - 2; j++) {
-            if (aantal[j] > aantal[j + 1]) {
-                temp = aantal[j];
-                aantal[j] = aantal[j + 1];
-                aantal[j + 1] = temp;
+         for (i = 0; i <= aantal.length - 1; i++) {
+             for (j = 0; j <= aantal.length - i - 2; j++) {
+                 if (aantal[j] > aantal[j + 1]) {
+                     temp = aantal[j];
+                        aantal[j] = aantal[j + 1];
+                        aantal[j + 1] = temp;
+                 }   
             }
         }
     }
-}
 
      function search(aantal, geradenGetal, i) {
-    // Hier wordt er binary search uitgevoerd op de random getallen.
-    var plaatsGeraden;
+     // Hier wordt er binary search uitgevoerd op de random getallen.
+         var plaatsGeraden;
 
-    plaatsGeraden = false;
-    var eindIndex;
+         plaatsGeraden = false;
+            var eindIndex;
 
-    eindIndex = i;
-    var middenIndex;
+         eindIndex = i;
+            var middenIndex;
 
-    middenIndex =  i / 2;
-    var beginIndex;
+         middenIndex =  i / 2;
+         var beginIndex;
 
-    beginIndex = 0;
-    while (plaatsGeraden != true) {
+            beginIndex = 0;
+            while (plaatsGeraden != true) {
 
-        // Als het getal groter is dan het getal wat in het midden staat, zal het naar rechts gaan. Zo niet naar links
-        if (geradenGetal > aantal[middenIndex]) {
-            if (geradenGetal == aantal[middenIndex]) {
+            // Als het getal groter is dan het getal wat in het midden staat, zal het naar rechts gaan. Zo niet naar links
+             if (geradenGetal > aantal[middenIndex]) {
+              if (geradenGetal == aantal[middenIndex]) {
                 window.alert("Gevonden!");
                 plaatsGeraden = true;
                 window.alert("Het staat op plaats " + middenIndex);
-            } else {
+             } else {
 
                 // Op een gegeven moment als het getal er niet in staat, zullen het midden en het begin van de rij die gecheckt wordt hetzelfde zijn een een oneindige loop creëren. Om dit te voorkomen staat hier een if-statement.
                 if (beginIndex == middenIndex) {
@@ -203,13 +207,13 @@ function weergaveArray(nummers) {
                     beginIndex = middenIndex;
                     middenIndex = (double) (eindIndex + middenIndex) / 2;
                 }
-            }
-        } else {
-            if (geradenGetal == aantal[middenIndex]) {
-                window.alert("Gevonden!");
-                plaatsGeraden = true;
-                window.alert("Het staat op plaats " + middenIndex);
-            } else {
+                }
+             } else {
+                if (geradenGetal == aantal[middenIndex]) {
+                    window.alert("Gevonden!");
+                   plaatsGeraden = true;
+                   window.alert("Het staat op plaats " + middenIndex);
+             } else {
 
                 // Op een gegeven moment als het getal er niet in staat, zullen het midden en het begin van de rij die gecheckt wordt hetzelfde zijn een een oneindige loop creëren. Om dit te voorkomen staat hier een if-statement.
                 if (beginIndex == middenIndex) {
@@ -220,13 +224,14 @@ function weergaveArray(nummers) {
                     middenIndex = (beginIndex + middenIndex) / 2;
                 }
             }
+            }
         }
-    }
      }
      
 
     </script>
 
+lukt het
 </body>
 
 </html>
