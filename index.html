@@ -265,18 +265,17 @@ function rekenmachine() {
 
     // 'Doorgaan' zorgt ervoor dat iemand het antwoord van een vorige berekening kan gebruiken om een nieuwe berekening te beginnen.
     doorgaan = "ja";
-    window.alert("Begin maar met een cijfer");
-    antwoord = Number(window.prompt('Enter a value for antwoord'));
+    antwoord = Number(window.prompt('Begin maar met een cijfer'));
     while (doorgaan == "ja") {
-        window.alert("Waar wil je mee rekenen? Kies uit +, -, *, /, machten, wortel of modulair.");
-        functie = window.prompt('Enter a value for functie');
+        
+        functie = window.prompt('Waar wil je mee rekenen? Kies uit +, -, *, /, machten, wortel of modulair.');
         if (functie == "+") {
-            window.alert("Vul nog een cijfer in");
-            cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+            
+            cijfer1 = Number(window.prompt('Vul nog een cijfer in'));
             antwoord = antwoord + cijfer1;
             window.alert(antwoord);
-            window.alert("Wil je doorgaan met de berekening?");
-            doorgaan = window.prompt('Enter a value for doorgaan');
+
+            doorgaan = window.prompt('Wil je doorgaan met de berekening?');
         } else {
             if (functie == "-") {
                 window.alert("Vul nog een cijfer in");
