@@ -230,8 +230,140 @@
      
 
     </script>
+    <br>
+    Hierna komt een rekenmachine:
+    <br>
+    <button onclick="complexeRekenmachine()">Ik ben voor de rekenmachine!</button>
+    <script>
+function complexeRekenmachine(){
+    // Ik heb besloten om de rekenmachine in een ander programma te doen, zodat het overzichtelijker is. De main zorgt er alleen voor dat er een nieuwe berekening kan worden gestart zonder het hele programma af te sluiten.
+    var start;
+
+    start = "ja";
+
+    // Deze loop hieronder is zodat er een nieuwe berekening kan worden begonnen zonder het programma opnieuw op te starten.
+    while (start == "ja") {
+
+        // Ik had besloten om het rekenmachine deelin een andere functie te plaatsen om het overzichtelijker te maken.
+        rekenmachine();
+        window.alert("Wil je een nieuwe berekening beginnen?");
+        start = window.prompt('Enter a value for start');
+    }
+    window.alert("Tot ziens!!!");
+}
+
+function rekenmachine() {
+    // In de 'rekenmachine' worden de sommen verwerkt. Je kan hier +,-,/,*, machten, wortels en modulair mee berekenen.
+    var cijfer1;
+
+    // Het mag dan wel cijfer1 heten, maar het wordt eigenlijk als 2e getal gebruikt.
+    var functie;
+    var antwoord;
+
+    // Ik heb besloten om 'antwoord' als het eerste cijfer te gebruiken. Dit zorgt ervoor dat ik 'antwoord' weer kan hergebruiken wanneer iemand verder wil met de berekening.
+    var doorgaan;
+
+    // 'Doorgaan' zorgt ervoor dat iemand het antwoord van een vorige berekening kan gebruiken om een nieuwe berekening te beginnen.
+    doorgaan = "ja";
+    window.alert("Begin maar met een cijfer");
+    antwoord = Number(window.prompt('Enter a value for antwoord'));
+    while (doorgaan == "ja") {
+        window.alert("Waar wil je mee rekenen? Kies uit +, -, *, /, machten, wortel of modulair.");
+        functie = window.prompt('Enter a value for functie');
+        if (functie == "+") {
+            window.alert("Vul nog een cijfer in");
+            cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+            antwoord = antwoord + cijfer1;
+            window.alert(antwoord);
+            window.alert("Wil je doorgaan met de berekening?");
+            doorgaan = window.prompt('Enter a value for doorgaan');
+        } else {
+            if (functie == "-") {
+                window.alert("Vul nog een cijfer in");
+                cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                antwoord = antwoord - cijfer1;
+                window.alert(antwoord);
+                window.alert("Wil je doorgaan met de berekening?");
+                doorgaan = window.prompt('Enter a value for doorgaan');
+            } else {
+                if (functie == "*") {
+                    window.alert("Vul nog een cijfer in");
+                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                    antwoord = antwoord * cijfer1;
+                    window.alert(antwoord);
+                    window.alert("Wil je doorgaan met de berekening?");
+                    doorgaan = window.prompt('Enter a value for doorgaan');
+                } else {
+                    if (functie == "/") {
+                        window.alert("Vul nog een cijfer in");
+                        cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                        if (cijfer1 == 0) {
+
+                            // Het is niet mogelijk om te delen door 0, dus om ervoor te zorgen dat het programma geen error geeft, moet ik ervoor zorgen dat daar niet mee gerekend wordt.
+                            window.alert("Je kan niet delen door 0 helaas. Probeer iets anders.");
+                            doorgaan = "nee";
+                        } else {
+                            antwoord = antwoord / cijfer1;
+                            window.alert(antwoord);
+                            window.alert("Wil je doorgaan met de berekening?");
+                            doorgaan = window.prompt('Enter a value for doorgaan');
+                        }
+                    } else {
+                        if (functie == "machten") {
+                            window.alert("Met welke macht wil je rekenen?");
+                            cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                            antwoord = Math.pow(antwoord, cijfer1);
+                            window.alert(antwoord);
+                            window.alert("Wil je doorgaan met de berekening?");
+                            doorgaan = window.prompt('Enter a value for doorgaan');
+                        } else {
+                            if (functie == "wortel") {
+                                if (antwoord > 0) {
+                                    window.alert("Welke machts wortel wil je gebruiken?");
+                                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                                    antwoord = Math.pow(antwoord, 1 / cijfer1);
+
+                                    // Wortel(x)= x^1/2, dus zo kan je andere machts wortels maken.
+                                    window.alert(antwoord);
+                                    window.alert("Wil je doorgaan met de berekening?");
+                                    doorgaan = window.prompt('Enter a value for doorgaan');
+                                } else {
+
+                                    // Je kan geen negatieve wortel hebben, dus er komt een foutmelding.
+                                    window.alert("Je kan geen negatief getal in een wortelplaatsten. Probeer iets anders.");
+                                    doorgaan = "nee";
+                                }
+                            } else {
+                                if (functie == "modulair") {
+                                    window.alert("Door welk cijfer wil je het delen?");
+                                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                                    antwoord = antwoord % cijfer1;
+
+                                    // Modulair is dat 2 cijfers door elkaar worden weggedeelt en de getallen die niet helemaal weg konden worden gedeeld zijn het modulair.
+                                    window.alert(antwoord);
+                                    window.alert("Wil je doorgaan met de berekening?");
+                                    doorgaan = window.prompt('Enter a value for doorgaan');
+                                } else {
+                                    window.alert("Dat begrijp ik niet!");
+                                    doorgaan = "nee";
+
+                                    // Omdat er geen antwoord is in de berekening, maar 'antwoord' wel is ingevult, moet er ook in het programma direct een eind aan de berekening worden gemaakt.
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Ik heb "wil je doorgaan" en "input doorgaan" hier niet geplaatst, omdat het anders in de knel komt met de foutmeldingen.
+    }
+}
 
 
+
+
+    </script>
 </body>
 
 </html>
