@@ -246,8 +246,7 @@ function complexeRekenmachine(){
 
         // Ik had besloten om het rekenmachine deelin een andere functie te plaatsen om het overzichtelijker te maken.
         rekenmachine();
-        window.alert("Wil je een nieuwe berekening beginnen?");
-        start = window.prompt('Enter a value for start');
+        start = window.prompt('Wil je een nieuwe berekening beginnen?');
     }
     window.alert("Tot ziens!!!");
 }
@@ -278,24 +277,19 @@ function rekenmachine() {
             doorgaan = window.prompt('Wil je doorgaan met de berekening?');
         } else {
             if (functie == "-") {
-                window.alert("Vul nog een cijfer in");
-                cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                cijfer1 = Number(window.prompt('Vul nog een cijfer in'));
                 antwoord = antwoord - cijfer1;
                 window.alert(antwoord);
-                window.alert("Wil je doorgaan met de berekening?");
-                doorgaan = window.prompt('Enter a value for doorgaan');
+                doorgaan = window.prompt('Wil je doorgaan met de berekening?');
             } else {
                 if (functie == "*") {
-                    window.alert("Vul nog een cijfer in");
-                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                    cijfer1 = Number(window.prompt('Vul nog een cijfer in'));
                     antwoord = antwoord * cijfer1;
                     window.alert(antwoord);
-                    window.alert("Wil je doorgaan met de berekening?");
-                    doorgaan = window.prompt('Enter a value for doorgaan');
+                    doorgaan = window.prompt('Wil je doorgaan met de berekening?');
                 } else {
                     if (functie == "/") {
-                        window.alert("Vul nog een cijfer in");
-                        cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                        cijfer1 = Number(window.prompt('Vul nog een cijfer in'));
                         if (cijfer1 == 0) {
 
                             // Het is niet mogelijk om te delen door 0, dus om ervoor te zorgen dat het programma geen error geeft, moet ik ervoor zorgen dat daar niet mee gerekend wordt.
@@ -304,28 +298,23 @@ function rekenmachine() {
                         } else {
                             antwoord = antwoord / cijfer1;
                             window.alert(antwoord);
-                            window.alert("Wil je doorgaan met de berekening?");
-                            doorgaan = window.prompt('Enter a value for doorgaan');
+                            doorgaan = window.prompt('Wil je doorgaan met de berekening?');
                         }
                     } else {
                         if (functie == "machten") {
-                            window.alert("Met welke macht wil je rekenen?");
-                            cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                            cijfer1 = Number(window.prompt('Met welke macht wil je rekenen?'));
                             antwoord = Math.pow(antwoord, cijfer1);
                             window.alert(antwoord);
-                            window.alert("Wil je doorgaan met de berekening?");
-                            doorgaan = window.prompt('Enter a value for doorgaan');
+                            doorgaan = window.prompt('Wil je doorgaan met de berekening?');
                         } else {
                             if (functie == "wortel") {
                                 if (antwoord > 0) {
-                                    window.alert("Welke machts wortel wil je gebruiken?");
-                                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                                    cijfer1 = Number(window.prompt('Welke machts wortel wil je gebruiken?'));
                                     antwoord = Math.pow(antwoord, 1 / cijfer1);
 
                                     // Wortel(x)= x^1/2, dus zo kan je andere machts wortels maken.
                                     window.alert(antwoord);
-                                    window.alert("Wil je doorgaan met de berekening?");
-                                    doorgaan = window.prompt('Enter a value for doorgaan');
+                                    doorgaan = window.prompt('Wil je doorgaan met de berekening?');
                                 } else {
 
                                     // Je kan geen negatieve wortel hebben, dus er komt een foutmelding.
@@ -334,14 +323,12 @@ function rekenmachine() {
                                 }
                             } else {
                                 if (functie == "modulair") {
-                                    window.alert("Door welk cijfer wil je het delen?");
-                                    cijfer1 = Number(window.prompt('Enter a value for cijfer1'));
+                                    cijfer1 = Number(window.prompt('Door welk cijfer wil je het delen?'));
                                     antwoord = antwoord % cijfer1;
 
                                     // Modulair is dat 2 cijfers door elkaar worden weggedeelt en de getallen die niet helemaal weg konden worden gedeeld zijn het modulair.
                                     window.alert(antwoord);
-                                    window.alert("Wil je doorgaan met de berekening?");
-                                    doorgaan = window.prompt('Enter a value for doorgaan');
+                                    doorgaan = window.prompt('Wil je doorgaan met de berekening?');
                                 } else {
                                     window.alert("Dat begrijp ik niet!");
                                     doorgaan = "nee";
